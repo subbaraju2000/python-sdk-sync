@@ -5,7 +5,7 @@ class MediaResource:
     def __init__(self, client):
         self.client = client
     
-    def get_all(self,params=None)):
+    def get_all(self,params=None):
         """Fetch all medias."""
         try:
             return make_request(
