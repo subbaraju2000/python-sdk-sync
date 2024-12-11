@@ -5,13 +5,14 @@ class MediaResource:
     def __init__(self, client):
         self.client = client
     
-    def get_all(self):
+    def get_all(self,params=None)):
         """Fetch all medias."""
         try:
             return make_request(
                 method="GET", 
                 endpoint="/on-demand", 
-                headers=self.client.headers
+                headers=self.client.headers,
+                params=params
             )
         except APIError as e:
             raise APIError(f"Failed to fetch medias: {str(e)}")
@@ -94,4 +95,21 @@ class MediaResource:
             return response
         except APIError as e:
             raise APIError(f"Failed to create presigned URL request: {str(e)}")
+
+    def get_media_info(self, media_id):
+        """Retrieve media input info by media ID."""
+        if not media_id:
+            raise ValueError("Media ID must be provided.")
+        
+        try:
+            endpoint = f"/on-demand/{media_id}/input-info"
+            
+            return make_request(
+                method="GET", 
+                endpoint=endpoint, 
+                headers=self.client.headers
+            )
+        except APIError as e:
+            raise APIError(f"Failed to retrieve media input info: {str(e)}")
+            
             
