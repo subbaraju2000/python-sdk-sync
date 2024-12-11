@@ -17,13 +17,14 @@ class Livestream:
         except APIError as e:
             raise APIError(f"Failed to create live stream: {str(e)}")
     
-    def list(self):
+    def list(self,params=None):
         """Retrieve all live streams."""
         try:
             return make_request(
                 method="GET", 
                 endpoint="/live/streams", 
-                headers=self.client.headers
+                headers=self.client.headers,
+                params=params
             )
         except APIError as e:
             raise APIError(f"Failed to retrieve live streams: {str(e)}")
