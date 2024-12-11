@@ -30,7 +30,7 @@ To get started with the **FastPix Python SDK**, ensure you have the following:
 
 # Installation:
 
-To install the SDK, you can use pip:
+To install the SDK, use pip, the Python package manager, to easily download and install the required libraries.
 
 ```bash
 pip3 install python_sync_api
@@ -44,7 +44,7 @@ pip3 install python_sync_api
 from python_sync_api.client import VideoSDKClient
 ```
 
-# Initialization:
+## Initialization:
 
 Initialize the FastPix SDK with your API credentials.
 
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
 #### Upload Media from a URL:
 
-Use the `client.media.create_pull_video` method to upload media directly from a URL. For detailed configuration options, refer to the [Create media from URL](https://docs.fastpix.io/reference/create-media) API documentation.
+Use the `client.media.create_pull_video()` method to upload media directly from a URL. For detailed configuration options, refer to the [Create media from URL](https://docs.fastpix.io/reference/create-media) API documentation.
 
 ```python
 # Define the request payload for uploading media from a URL.
@@ -103,7 +103,7 @@ print("media_response", media_response)
 
 #### Upload Media from a Local Device:
 
-Use the `client.media.get_presigned_url` method to obtain a `signedUrl` and upload media directly from a local device. For more details on configuration options, refer to the [Upload media from device](https://docs.fastpix.io/reference/direct-upload-video-media) API documentation.
+Use the `client.media.get_presigned_url()` method to obtain a `signedUrl` and upload media directly from a local device. For more details on configuration options, refer to the [Upload media from device](https://docs.fastpix.io/reference/direct-upload-video-media) API documentation.
 
 ```python
 # Define the request payload for uploading media from a device.
@@ -124,7 +124,7 @@ print("Upload Response:", mediaFromDeviceResponse)
 
 #### Get List of All Media:
 
-Use the `client.media.get_all` method to fetch a list of all media assets. You can customize the query by modifying parameters such as `limit`, `offset`, and `orderBy`. Refer to the [Get list of all media](https://docs.fastpix.io/reference/list-media) API documentation for the accepted values.
+Use the `client.media.get_all()` method to fetch a list of all media assets. You can customize the query by modifying parameters such as `limit`, `offset`, and `orderBy`. Refer to the [Get list of all media](https://docs.fastpix.io/reference/list-media) API documentation for the accepted values.
 
 ```python
 # Define the parameters for fetching media assets in a separate variable.
@@ -143,7 +143,7 @@ print("All Media Assets:", all_media_assets)
 
 #### Get Media Asset by ID:
 
-Use the `client.media.get_by_id` method to retrieve a specific media asset by its ID. Provide `mediaId`of the asset to fetch its details. Refer to the [Get a media by ID](https://docs.fastpix.io/reference/get-media) API documentation for more details.
+Use the `client.media.get_by_id()` method to retrieve a specific media asset by its ID. Provide `mediaId`of the asset to fetch its details. Refer to the [Get a media by ID](https://docs.fastpix.io/reference/get-media) API documentation for more details.
 
 ```python
 media_id = "mediaId"  # Unique identifier for the media asset to be retrieved
@@ -156,7 +156,7 @@ print("Retrieved media asset by ID:", get_media_asset)
 
 #### Update Media Asset:
 
-Use the `client.media.update` method to update metadata or other properties of a specific media asset. Provide the `mediaId` of the asset along with the metadata to be updated. Refer to the [Update a media by ID](https://docs.fastpix.io/reference/updated-media) API documentation for more details.
+Use the `client.media.update()` method to update metadata or other properties of a specific media asset. Provide the `mediaId` of the asset along with the metadata to be updated. Refer to the [Update a media by ID](https://docs.fastpix.io/reference/updated-media) API documentation for more details.
 
 ```python
 media_id = "mediaId"  # Unique identifier for the media asset to be retrieved
@@ -176,7 +176,7 @@ print("Updated Media Asset:", update_media_asset)
 
 #### Delete Media Asset:
 
-Use the `client.media.delete` method to delete a specific media asset by its ID. Pass the `mediaId` of the asset you want to delete. Refer to the [Delete a media by ID](https://docs.fastpix.io/reference/delete-media) API documentation for more information.
+Use the `client.media.delete()` method to delete a specific media asset by its ID. Pass the `mediaId` of the asset you want to delete. Refer to the [Delete a media by ID](https://docs.fastpix.io/reference/delete-media) API documentation for more information.
 
 ```python
 media_id = "mediaId"  # Unique identifier for the media asset to be retrieved
@@ -190,7 +190,7 @@ print("Deleted Media Asset:", delete_media_asset)
 
 #### Get Media Asset Info:
 
-Use the `client.media.get_media_info` method to retrieve detailed information about a specific media asset. Pass the `mediaId` to fetch its details. Refer to the [Get info of media inputs](https://docs.fastpix.io/reference/retrievemediainputinfo) API documentation for more details.
+Use the `client.media.get_media_info()` method to retrieve detailed information about a specific media asset. Pass the `mediaId` to fetch its details. Refer to the [Get info of media inputs](https://docs.fastpix.io/reference/retrievemediainputinfo) API documentation for more details.
 
 ```python
 media_id = "mediaId"  # Unique identifier for the media asset to be retrieved
@@ -203,7 +203,7 @@ print("Media Asset Info:", getMediaInfo)
 
 #### Generate Media Playback ID:
 
-Use the `client.media_playback_ids.create` method to generate a playback ID for a specific media asset. You can pass an `mediaId` and configure options such as the `accessPolicy`. For detailed configuration options, refer to the [Create a playback ID](https://docs.fastpix.io/reference/create-media-playback-id) API documentation.
+Use the `client.media_playback_ids.create()` method to generate a playback ID for a specific media asset. You can pass an `mediaId` and configure options such as the `accessPolicy`. For detailed configuration options, refer to the [Create a playback ID](https://docs.fastpix.io/reference/create-media-playback-id) API documentation.
 
 ```python
 # Define the mediaId and accessPolicy dynamically
