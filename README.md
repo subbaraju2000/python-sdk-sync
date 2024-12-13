@@ -208,10 +208,10 @@ Use the `client.media_playback_ids.create()` method to generate a playback ID fo
 ```python
 # Define the mediaId and accessPolicy dynamically
 
-mediaId =  "media-id", # Unique identifier for the media asset.
+mediaId =  "media-id" # Unique identifier for the media asset.
 
 playbackOptions = {
-  accessPolicy: "public", # Can be 'public' or 'private'.
+  "accessPolicy": "public", # Can be 'public' or 'private'.
 }
 
 playbackIdResponse = client.media_playback_ids.create(media_id=mediaId, data=playbackOptions)
