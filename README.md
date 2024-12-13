@@ -33,7 +33,7 @@ To get started with the **FastPix Python SDK**, ensure you have the following:
 To install the SDK, use pip, the Python package manager, to easily download and install the required libraries.
 
 ```bash
-pip3 install python_sync_api
+pip3 install python_test_video_fp
 ```
 
 # Basic Usage:
@@ -41,7 +41,7 @@ pip3 install python_sync_api
 ## Importing the SDK
 
 ```python
-from python_sync_api.client import VideoSDKClient
+from python_test_video_fp.client import VideoSDKClient
 ```
 
 ## Initialization:
@@ -49,7 +49,7 @@ from python_sync_api.client import VideoSDKClient
 Initialize the FastPix SDK with your API credentials.
 
 ```python
-from python_sync_api.client import VideoSDKClient
+from python_test_video_fp.client import VideoSDKClient
 
 client = VideoSDKClient(username="your-access-token-id", password="your-secret-key")
 ```
@@ -59,7 +59,7 @@ client = VideoSDKClient(username="your-access-token-id", password="your-secret-k
 Below is an example of configuring `FastPix Python SDK` into your project.
 
 ```python
-from python_sync_api.client import VideoSDKClient
+from python_test_video_fp.client import VideoSDKClient
  
 client = VideoSDKClient(username=username, password=password)
       
@@ -111,7 +111,7 @@ mediaFromDeviceRequest = {
   "corsOrigin": "*", # Specifies the allowed origin for CORS (Cross-Origin Resource Sharing). "*" allows all origins.
   "pushMediaSettings": {
     "accessPolicy": "private", # Sets the access policy for the uploaded media (e.g., "private" or "public").
-    "optimizeAudio": true, # Enables audio optimization for the uploaded media.
+    "optimizeAudio": True, # Enables audio optimization for the uploaded media.
     "maxResolution": "1080p", # Specifies the maximum resolution allowed for the uploaded media.
   },
 }
@@ -253,7 +253,7 @@ liveStreamRequest = {
     "metadata": {
       "liveStream": "fp_livestream", # Custom metadata for the live stream
     },
-    "enableDvrMode": true, # Enable DVR mode to allow viewers to rewind the live stream
+    "enableDvrMode": True, # Enable DVR mode to allow viewers to rewind the live stream
   },
 }
 
@@ -270,9 +270,9 @@ Use the `client.livestreams.list()` method to fetch a list of all live streams. 
 
 ```python
 getAllLiveStreamPagination = {
-  limit: 10, # Limit the number of live streams retrieved.
-  offset: 1, # Skip a specified number of streams for pagination.
-  orderBy: "asc", # Order the results based on the specified criteria ("asc" or "desc").
+  "limit": 10, # Limit the number of live streams retrieved.
+  "offset": 1, # Skip a specified number of streams for pagination.
+  "orderBy": "asc", # Order the results based on the specified criteria ("asc" or "desc").
 }
 
 const getAllLiveStreams = client.livestreams.list(getAllLiveStreamPagination)
@@ -296,7 +296,7 @@ Use the `client.livestreams.update()` method to update a live stream's configura
 
 ```python
 stream_id = "a09f3e958c16ed00e85bfe798abd9845" # Provide the stream ID for the live stream to update
- updateLiveStreamRequest = {
+updateLiveStreamRequest = {
   "metadata": {
     "livestream_name": "Game_streaming",
   },
@@ -373,7 +373,7 @@ simulcast_payload = {
 
 stream_id = "a09f3e958c16ed00e85bfe798abd9845"  # Replace with actual stream ID
 
-generateSimulcast = client.livestream_simulcasts.create(stream_id, simulcast_payload)
+generateSimulcast = client.livestreams.create_simulcast(stream_id, simulcast_payload)
 
 print("Generate Simulcast:", generateSimulcast)
 ```
@@ -386,7 +386,7 @@ Use the `client.livestreams.get_simulcast()` method to retrieve details of a spe
 stream_id = "a09f3e958c16ed00e85bfe798abd9845"  # Replace with actual stream ID
 simulcast_id = "7269209ff0299319b6321c9a6e7850ff"  # Replace with actual simulcast ID
 
-getLiveSimulcast = client.livestream_simulcasts.get_simulcast(stream_id, simulcast_id)
+getLiveSimulcast = client.livestreams.get_simulcast(stream_id, simulcast_id)
 
 print("Live Stream Simulcast Details:", getLiveSimulcast)
 ```
@@ -406,7 +406,7 @@ update_payload = {
     }
 }
 
-updateLiveSimulcast = client.livestreams.update_simulcast()(stream_id, simulcast_id, update_payload)
+updateLiveSimulcast = client.livestreams.update_simulcast(stream_id, simulcast_id, update_payload)
 
 print("Updated Live Stream Simulcast:", updateLiveSimulcast)
 ```
